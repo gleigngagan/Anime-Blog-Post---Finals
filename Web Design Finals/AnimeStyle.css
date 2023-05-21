@@ -1,0 +1,281 @@
+/* ensures consistent box-sizing behavior throughout the document */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* INDICATORS */
+
+:root {
+	--ff-primary: 'Roboto', light;
+	--ff-secondary: 'Roboto', regular;
+	
+	--fw-reg: 300;
+	--fw-bold: 400;
+	
+	--fs-h1: 3rem;
+	--fs-h2: 2.25rem;
+	--fs-h3: 1.25rem;
+	--fs-body: 1rem;
+	
+	--bs: 0.25em 0.25em 0.75em rgba(0,0,0,25),
+			0.125em 0.125em 0.25em rgba(0,0,0,.15);
+}
+	
+@media (min-width: 800px) {
+	:root {
+		--fs-h1: 4.5rem;
+		--fs-h2: 3.75rem;
+		--fs-h3: 1.5rem;
+		--fs-body: 1.125rem;
+	}
+}
+
+/* General Style of the Web Page*/
+
+html {
+	scroll-behavior: smooth;
+}
+
+
+
+body {
+    background-color: #D39663;
+	color: black;
+	margin: 0;
+	font-family: var(--ff-primary);
+	font-size: var(--fs-body);
+	line-height: 1.6;	
+}
+
+section {
+	padding: 3em 2em;
+}
+
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+strong { font-weight: var(--fw-bold) }
+
+:focus {
+	outline: 3px solid var(--clr-mellowapricot);
+	outline-offset: 3px;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+	line-height: 1;
+	margin: 0;
+}
+
+h1 { font-size: var(--fs-h1) }
+h2 { font-size: var(--fs-h2) }
+h3 { font-size: var(--fs-h3) }
+
+.section__title {
+	margin-bottom: .25em;
+}
+
+.section__title--intro {
+	margin-top: 1em;
+	font-weight: var(--fw-reg);
+	font-family: "Papyrus";
+	text-align: center;
+}
+
+.section__title--intro strong {
+	display: block;
+}
+
+
+
+.section__subtitle--intro,
+.section__subtitle--about {
+	
+	font-size: 1.5rem;
+	font-family: var(--ff-secondary);
+	margin-top: 2.5em;
+	margin-bottom: 0em;
+	text-align: right;
+}
+
+
+/* Typography the upper part*/
+
+.navbar{
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    align-items: center;
+    position: sticky;
+    top:0;
+}
+.navbar::before{
+    content: "";
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+}
+.navbar ul{
+    display: flex;
+    list-style: none;
+}
+.navbar ul li{
+    font-size: 1.1rem;
+}
+.navbar ul li a{
+    padding: 5px 40px;
+    text-decoration: none;
+    color: white;
+}
+.navbar ul li a:hover{
+    border-bottom: 2px solid blue;
+}
+
+/* INTRODUCTION */
+
+.intro {
+	position: relative;
+}
+
+.intro__img {
+	box-shadow: var(--bs);
+}
+
+.section__subtitle--intro {
+	display: inline-block;
+}
+
+
+@media (min-width: 600px) {
+	.intro {
+		display: grid;
+		width: min-content;
+		margin: 0 auto;
+		grid-column-gap: 1em;
+		grid-template-areas:
+			"img title"
+			"img subtitle";
+		grid-template-columns: min-content max-content;
+	}
+	
+	.intro__img {
+		grid-area: img;
+		min-width: 350px;
+		min-height: 350PX;
+		position: relative;
+		z-index: 2;
+	}	
+}
+
+
+/* Design for Every Category */
+#shonen
+{
+	display: flex;
+    flex-direction: column;
+    background-color: #FFF8E7;	
+}
+#SOL
+{
+	display: flex;
+    flex-direction: column;
+    background-color: #FFF8E7;	
+}
+#sports
+{
+	display: flex;
+    flex-direction: column;
+    background-color: #FFF8E7;		
+}
+#romcom
+{
+	display: flex;
+    flex-direction: column;
+    background-color: #FFF8E7;			
+}
+
+/* layout of the 3x3 images */
+.gallery{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.gallery img{
+    width: 360px;
+    height: 500px;
+    padding: 10px;
+    margin: 10px;
+}
+.gallery img:hover{
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+}
+
+.centered-content {
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.title-content{	
+  font-family: "Garamond";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.text-justify 
+{
+  font-size: 1.3rem;
+  font-family: var(--ff-secondary);
+  text-align: justify;
+  margin: 35px;
+  margin-bottom: 0.5em;
+  margin-top: 1em;
+  
+}
+
+
+
+/* FOOTER (LOCATION)*/
+
+.footer {
+	background-color:#D39663;
+	text-align: center;
+	padding: 2.5em 0;
+	font-size: var(--fs-h3);
+}
+
+.footer a { 
+	color: inherit;
+	text-decoration: none;
+}
+
+.social-list {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	margin: 0em 0 0;
+	padding: 0em 0;
+	font-size: 50px;
+}
+
+.social-list__item {
+	margin: 0em;
+
+}
+
+.social-list__link {
+	padding: 1em;
+
+}
